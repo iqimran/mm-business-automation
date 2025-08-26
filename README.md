@@ -23,7 +23,7 @@ Fully Dockerized for local development.
 
 ### Backend
 - **Framework**: Laravel 11 (PHP 8.2)
-- **Authentication**: Laravel Sanctum
+- **Authentication**: Laravel JWT Authentication
 - **Authorization**: Spatie Laravel Permission
 - **Database**: MySQL 8.0
 - **Cache & Queue**: Redis 7
