@@ -19,7 +19,7 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var list<string>
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password', 'phone', 'is_active', 'last_login_at','email_verified_at'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -37,7 +37,9 @@ class User extends Authenticatable implements JWTSubject
     {
         return [
             'email_verified_at' => 'datetime',
+            'last_login_at' => 'datetime',
             'password' => 'hashed',
+            'is_active' => 'boolean'
         ];
     }
 
@@ -48,6 +50,11 @@ class User extends Authenticatable implements JWTSubject
     }
     public function getJWTCustomClaims(): array
     {
-        return [];
+        return [
+            'user_id' => $this->id,
+            'email' => $this->email,
+            'roles' => $this->roles->pluck('name'),
+        ];
     }
+
 }
