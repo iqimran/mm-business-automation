@@ -58,6 +58,11 @@ class Car extends Model
         return $this->hasMany(CarExpense::class);
     }
 
+    public function sales()
+    {
+        return $this->hasMany(CarSale::class);
+    }
+
     public function getFullNameAttribute()
     {
         return "{$this->name} {$this->year} {$this->model}";

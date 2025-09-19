@@ -40,6 +40,11 @@ class CarExpense extends Model
         return $this->belongsTo(CarExpenseCategory::class, 'expense_category_id');
     }
 
+    public function getCategories()
+    {
+        return CarExpenseCategory::where('is_active', true)->pluck('name', 'id');
+    }
+
     public function getReceiptUrlAttribute()
     {
         return $this->receipt_image

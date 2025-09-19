@@ -11,7 +11,7 @@ use OwenIt\Auditing\Auditable;
 
 class SalePayment extends Model implements AuditableContract
 {
-    use HasFactory, Auditable;
+    use HasFactory, Auditable; 
 
     protected $fillable = [
         'car_sale_id',
@@ -37,7 +37,7 @@ class SalePayment extends Model implements AuditableContract
 
     public function carSale()
     {
-        return $this->belongsTo(CarSale::class);
+        return $this->belongsTo(CarSale::class , 'car_sale_id');
     }
 
     public function getReceiptUrlAttribute()

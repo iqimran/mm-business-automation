@@ -61,7 +61,7 @@ class CarSale extends Model
 
     public function payments()
     {
-        return $this->hasMany(SalePayment::class);
+        return $this->hasMany(SalePayment::class, 'car_sale_id');
     }
 
     public function getTotalPaidAttribute()
